@@ -1,7 +1,9 @@
 package br.unifor.frontendcalclogica.ui.theme.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -37,7 +39,12 @@ fun SolutionScreen(onBack: () -> Unit) {
             Text("⟵ Voltar", color = Color.White, fontSize = 16.sp)
         }
 
-        Text("EXPRESSÃO:", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+        Text(
+            "EXPRESSÃO:",
+            color = Color.White,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold
+        )
 
         Box(
             modifier = Modifier
@@ -48,28 +55,52 @@ fun SolutionScreen(onBack: () -> Unit) {
                 .background(deepPanel),
             contentAlignment = Alignment.Center
         ) {
-            Text("A→B", color = Color.White, fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
+            Text(
+                "A→B",
+                color = Color.White,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.SemiBold
+            )
         }
 
-        Text("TABELA VERDADE", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold)
+        Text(
+            "TABELA VERDADE",
+            color = Color.White,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold
+        )
 
         Box(
             modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f)
+                .fillMaxWidth() // largura ocupa a tela inteira
                 .shadow(8.dp, RoundedCornerShape(8.dp), clip = false)
                 .clip(RoundedCornerShape(8.dp))
                 .background(Color.White)
-                .padding(12.dp),
-            contentAlignment = Alignment.Center
+                .padding(12.dp)
+                .wrapContentHeight(), // altura se ajusta ao texto
+            contentAlignment = Alignment.CenterStart
         ) {
-            Text(
-                "V   V\nV   F\nF   V\nF   F",
-                color = Color.Black,
-                fontSize = 18.sp,
-                textAlign = TextAlign.Center,
-                lineHeight = 26.sp
-            )
+            Row(
+                modifier = Modifier
+                    .horizontalScroll(rememberScrollState())
+                    .wrapContentWidth(), // largura se ajusta ao conteúdo
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    "V   V   F   V   F   V   F   V   F   V   F   V   F   V   F   V   F   V   F   V   F   V   F\n" +
+                            "V   F   V   F   V   F   V   F   V   F   V   F   V   F   V   F   V   F   V   F   V   F   V\n" +
+                            "F   V   F   V   F   V   F   V   F   V   F   V   F   V   F   V   F   V   F   V   F   V   F\n" +
+                            "F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F\n" +
+                            "F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F\n" +
+                            "F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F\n" +
+                            "F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F   F" ,
+                    color = Color.Black,
+                    fontSize = 18.sp,
+                    textAlign = TextAlign.Center,
+                    lineHeight = 26.sp
+                )
+            }
         }
+
     }
 }
