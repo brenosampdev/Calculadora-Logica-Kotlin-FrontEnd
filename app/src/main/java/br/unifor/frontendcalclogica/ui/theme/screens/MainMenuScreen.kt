@@ -34,10 +34,9 @@ fun MainMenuScreen(
 ) {
     var expression by remember { mutableStateOf("(A→B) ∧ (B→A)") }
 
-    // Dica: se for usar a borda vermelha, altere showError para true quando desejar
+    // Dica: Se for usar a borda vermelha, altere showError para true quando desejar
     var showError by remember { mutableStateOf(false) }
 
-    // Paleta próxima do Figma (mantive as cores originais)
     val bgTop = Color(0xFF0B1936)
     val bgBottom = Color(0xFF183F87)
     val panelBorder = Color(0xFF1C3E7C)
