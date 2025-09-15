@@ -1,75 +1,62 @@
-# 🧮 Calculadora Lógica - Frontend (Kotlin + Jetpack Compose)
+# 📐 Calculadora Lógica
 
-Este projeto é a **interface gráfica (frontend)** de uma calculadora lógica, desenvolvida em **Kotlin** utilizando **Android Studio** e **Jetpack Compose**.  
-
-⚠️ **Importante:** aqui está apenas o **frontend** — a parte visual e de navegação.  
-A lógica completa de avaliação de expressões será implementada em outra etapa do projeto.
+Este é um projeto Android desenvolvido em **Kotlin** que implementa uma **calculadora lógica** com interface gráfica.  
+O app permite criar e avaliar expressões lógicas, visualizar tabelas-verdade e trabalhar com operações como **negação, conjunção, disjunção, implicação** e **bicondicional**.
 
 ---
 
-## 🎨 Design no Figma
+## ✨ Funcionalidades
 
-O layout original da interface foi criado no Figma:  
-👉 [Acessar o design no Figma](https://www.figma.com/design/qyOJ1C2QeQYZF7m2MfWWRr/Figma-CalcLógica?node-id=2-15&t=ilxKOfR9YebuSF2m-0)
-
-O objetivo foi replicar fielmente o design do Figma, respeitando:
-- **Paleta de cores** (gradientes, botões verdes/vermelhos/laranjas);
-- **Tipografia**;
-- **Organização dos botões** (operadores, constantes lógicas, letras A-Z);
-- **Experiência de uso** semelhante a uma calculadora real.
-
----
-
-## ⚙️ Estrutura do Projeto
-
-A estrutura foi organizada em camadas para manter clareza e boas práticas:
-
-```
-app/src/main/java/br/unifor/frontendcalclogica/
-├─ MainActivity.kt          
-├─ navigation/              
-├─ domain/                  
-│  ├─ model/                
-│  └─ validation/           
-└─ ui/
-   ├─ components/           
-   ├─ screens/             
-   └─ theme/                
-```
+- Entrada de expressões lógicas personalizadas  
+- Geração automática de **tabela-verdade**  
+- Suporte a diferentes operadores lógicos:
+  - `¬` → negação
+  - `∧` → conjunção (E)
+  - `∨` → disjunção (OU)
+  - `→` → implicação
+  - `↔` → bicondicional
+- Alternar entre exibição em **0/1** ou **V/F**  
+- Interface feita em **Jetpack Compose**  
 
 ---
 
-## 🖥️ Funcionalidades atuais
+## 🛠️ Tecnologias usadas
 
-- **Tela inicial (MainMenuScreen):**
-  - Campo (visor) para exibir a expressão lógica digitada.
-  - Teclado customizado com:
-    - **Operadores lógicos** (¬, ∧, ∨, →, ↔, ↓);
-    - **Constantes** (`V` = verdadeiro, `F` = falso);
-    - **Letras A-Z** para representar proposições;
-    - **Botões especiais**:
-      - `C` (limpar);
-      - `⌫` (backspace);
-      - `=` (validar expressão e navegar para a tela de solução).
-  - Validação leve (só checa se parênteses estão balanceados e se a expressão não termina com operador).
-
-- **Tela de solução (SolutionScreen):**
-  - Mostra a expressão enviada.
-  - Exibe uma tabela verdade **estática** de exemplo (será substituída por geração real no futuro).
-  - Botão "⟵ Voltar" para retornar ao menu.
+- [Kotlin](https://kotlinlang.org/)  
+- [Android Studio](https://developer.android.com/studio)  
+- [Jetpack Compose](https://developer.android.com/jetpack/compose)  
+- Estrutura de **árvores lógicas** e **RPN (Notação Polonesa Reversa)** para avaliação de expressões  
 
 ---
 
-## 🚀 Como executar
+## 🚀 Como rodar o projeto
 
 1. Clone este repositório:
    ```bash
    git clone https://github.com/brenosampdev/Calculadora-Logica-Kotlin-FrontEnd.git
    ```
-
-2. Abra o projeto no **Android Studio**.
-
-3. Execute em um **emulador** ou **dispositivo físico Android**.
+2. Abra o projeto no **Android Studio**.  
+3. Aguarde o **Gradle sync** finalizar.  
+4. Rode em um emulador Android ou em um dispositivo físico.  
 
 ---
 
+## 📂 Estrutura do projeto
+
+```
+Calculadora-Logica-Kotlin-FrontEnd/
+ ├── app/                   # Código principal do app Android
+ │   ├── java/              # Código em Kotlin
+ │   ├── res/               # Recursos (layouts, ícones, cores, strings)
+ │   └── AndroidManifest.xml
+ ├── build.gradle
+ ├── settings.gradle
+ └── README.md
+```
+
+---
+
+## 📄 Licença
+
+Este projeto é distribuído sob a licença MIT.  
+Sinta-se livre para usar, modificar e compartilhar.  
